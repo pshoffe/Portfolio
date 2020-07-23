@@ -26,27 +26,27 @@ I picked these visualizations as I am a frequent user of the outdoors but don't 
         - Source: CRS, data from U.S. Fish and Wildlife Service, Wildlife and Sport Fish Restoration Program, 1939through 2019 WR Apportionments (includes Hunter Ed), at
         https://wsfrprograms.fws.gov/Subpages/GrantPrograms/WR/WRApportionmentsHE-1939-2019.xlsx.
 
-![Week%204%20d297d5f467f346a3924b0365b134a61e/Untitled.png](Week%204%20d297d5f467f346a3924b0365b134a61e/Untitled.png)
+![Week%204%20d297d5f467f346a3924b0365b134a61e/Untitled.png](img/Untitled.png)
 
 A separate set of visualizations that I felt also, while very solid, could be improved for the aspect of telling a better story.
 
 - Figure 2. Pittman-Robertson Revenues from Ammunition, Firearms, Pistols and
 Revolvers, and Archery Equipment, FY2007-FY2016
 
-![Week%204%20d297d5f467f346a3924b0365b134a61e/Untitled%201.png](Week%204%20d297d5f467f346a3924b0365b134a61e/Untitled%201.png)
+![img/Untitled.png](img/Untitled 1.png)
 
-![Week%204%20d297d5f467f346a3924b0365b134a61e/Untitled%202.png](Week%204%20d297d5f467f346a3924b0365b134a61e/Untitled%202.png)
+![Week%204%20d297d5f467f346a3924b0365b134a61e/Untitled%202.png](img/Untitled 2.png)
 
 ## Initial Critic
 
-![Week%204%20d297d5f467f346a3924b0365b134a61e/IMG_0841.jpg](Week%204%20d297d5f467f346a3924b0365b134a61e/IMG_0841.jpg)
+![Week%204%20d297d5f467f346a3924b0365b134a61e/IMG_0841.jpg](img/IMG_0841.jpg)
 
 - I think the raw bar chart combined with the inflation adjusted dollars helps with the truthfulness of the graph
 - Congress is the primary audience and my understanding is that they want to what congress understands about a topic. I think the visualization is informative for the audience but I am not sure what specifically it is trying to communicate the congress
 
 ## Wire Frame
 
-![Week%204%20d297d5f467f346a3924b0365b134a61e/IMG_0842.jpg](Week%204%20d297d5f467f346a3924b0365b134a61e/IMG_0842.jpg)
+![Week%204%20d297d5f467f346a3924b0365b134a61e/IMG_0842.jpg](img/IMG_0842.jpg)
 
 ## User Feedback
 
@@ -84,7 +84,7 @@ I wanted to make sure I could get the data in good enough shape for putting into
 
 As Tableau can be somewhat strict on what you can and cannot do with the images, I decided to also just do a second freehand drawing of the graph as it currently exists in my head which is included below:
 
-![Week%204%20d297d5f467f346a3924b0365b134a61e/IMG_0843.jpg](Week%204%20d297d5f467f346a3924b0365b134a61e/IMG_0843.jpg)
+![Week%204%20d297d5f467f346a3924b0365b134a61e/IMG_0843.jpg](img/IMG_0843.jpg)
 
 ## Process
 
