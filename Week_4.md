@@ -33,9 +33,9 @@ A separate set of visualizations that I felt also, while very solid, could be im
 - Figure 2. Pittman-Robertson Revenues from Ammunition, Firearms, Pistols and
 Revolvers, and Archery Equipment, FY2007-FY2016
 
-![img/Untitled.png](img/Untitled 1.png)
+![img/Untitled 1.png](img/Untitled_1.png)
 
-![Week%204%20d297d5f467f346a3924b0365b134a61e/Untitled%202.png](img/Untitled 2.png)
+![Week%204%20d297d5f467f346a3924b0365b134a61e/Untitled%202.png](img/Untitled_2.png)
 
 ## Initial Critic
 
