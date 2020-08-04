@@ -1,0 +1,631 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Draft Final Process Write up</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="01bc08d2-6789-4a01-a5f8-08fffec8d9cb" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🎾</span></div><h1 class="page-title">Draft Final Process Write up</h1></header><div class="page-body"><h3 id="1e616613-134f-493d-97cb-ecd44c65d6a4" class="">INTRO</h3><p id="25ef3237-e4ce-45f2-b89c-18c7fbefb7aa" class="">Despite declining numbers in hunters, the excise tax appropriations from Pittman-Robertson (a key source of conservation funding) rose substantially during the Obama administration. This is most likely explained by a surge in gun sales driven by fear of stricter gun laws. The surge in funding in relation to gun sales would also indicate that many of the taxed purchases funding Pittman-Robertson are more likely to be for non-hunting related reasons (ex: pistol for home defense) vs for hunting activity. In order for conservation to have a more stable funding base, amendments to the Pittman-Robertson Act should seek to broaden and diversify the tax pool by considering a backpack tax.</p><h3 id="4ee5386d-5376-4e1b-8ff6-073ad59dd13a" class="">OUTLINE</h3><p id="f928a8d0-5127-4fdf-bb3b-e10911045b2f" class=""><strong>The North American Model of Wildlife Conservation is regarded as one of the world&#x27;s most successful system of policies and laws to restore and safeguard fish and wildlife and their habitats through sound science and active management.</strong></p><p id="a5c21789-f58a-421a-affa-88654905b9f2" class="">The model plays a large role in conservation success stories that have created vast expanses of publicly owned land available for all Americans to enjoy and also brought countless species back from the brink of extinction.</p><p id="2b6c157b-eb6f-4502-9507-4426bb2be9dd" class="">A key component of the Model is the Pittman-Robertson Act signed into law by Franklin D. Roosevelt who said:</p><blockquote id="162d8c7e-c8da-49c1-944b-e17622358904" class="">&quot;A nation that destroys it soils destroys itself. Forest are the lungs of our land, purifying the air and giving fresh strength to our people - FDR</blockquote><p id="2d54d5ac-7a85-44a7-976c-1ca86846458b" class="">The Pittman-Robertson Act created a tax on hunting equipment, such as firearms and ammunition, in what is known as a &#x27;pay-to-play&#x27; approach where the theoretical user of the resource, in this case Hunters, are the ones who pay for the maintenance and stewardship of that resource, in this case wildlife.</p><p id="35cd8706-e52c-41f3-916e-ac993b91e99e" class="">While this approach has been remarkably successfully resulting in $1.1 billion in taxes revenue earmarked for wildlife conservation being distributed in 2018, it is threatened by the demise of the traditional american hunter with a consistent downward trend in the percent of the population who participate.</p><p id="a4a3630a-d02e-4d0a-a890-6f128bfe54fa" class="">Oddly though, despite a clear trend of declining numbers in hunters, the excise tax appropriations from Pittman-Robertson have risen substantially over the past few years driven predominantly by a surge in gun sales related to fears around stricter 2nd amendment regulations.</p><p id="0f657ce0-78e7-4644-9057-c9dad32e388b" class="">This rise in tax revenue in contrast to the decline of hunters would point towards weapons purchases vs hunting purchases as a larger portion of the revenue for Pittman-Robertson. For example, the purchase of an AR-15 for self-defense vs the purchase of archery equipment.</p><p id="463fdb38-c4c9-4e8a-a94a-a6129369443e" class="">This relationship between weapon purchases and funding for conservation deserves more consideration as the decline of hunting and unpredictability of firearm sales, regardless of how you feel about both of them in general, make them a weak foundation for the primary source of conservation funding in the United States.</p><p id="0d208bac-f596-4ea5-9100-0ed283c8d777" class="">One potential solution would be to expand the &#x27;pay-to-play&#x27; model by taxing those who enjoy the benefits from it today, such as hikers or birdwatchers who enjoy the use of trails paid for by hunters/gun sales, but in reality don&#x27;t pay for it themselves since things like hiking boots and binoculars are not taxed the same way as hunting equipment.</p><h3 id="6b604871-20a2-45c6-a017-accff7d3d624" class="">Method and Medium</h3><p id="c320d5dd-03bf-4795-85ec-fbb84adcbcb7" class=""><strong>Method: </strong>For the analysis of my data I am using a few available tools. The first and primary tool/method I am relying on is the R programming language as it is a language designed for statistical analysis and has many options around data manipulation(ex: the package dplyr) and data visualization(ex: the package ggplot2). R also has the benefit of there being different &#x27;recipes&#x27; available on how to do certain types of visualizations, which allows mix and match from different &#x27;recipes&#x27; to create new and different visualizations incorporating pieces you liked from the &#x27;recipes&#x27;</p><p id="03286eb2-eca5-44a4-bf1b-2cb0e94dbeeb" class="">I will also use Tableau as one weakness in R that I have encountered is that it is difficult to create graphs utilizing dual-axis, which Tableau fortunately handles with ease.</p><p id="134c8b7a-d382-4058-8209-f306be9ffb17" class="">While relying primarily on R might make the overall project more difficult for me, I feel that gaining more experience in using the tool outweighs the cons as my belief is that R is a better long-term skill to invest in as it is a free and open source tool and in demand skill for employers.</p><p id="1dd64cc1-deda-434c-b42f-4d648bdb23ac" class=""><strong>Medium: </strong>I intend to document my final story as a integrated piece of my portfolio site. This allows me to leverage some of the thoughtful readability elements incorporated into the CSS styling, such as off white background and a off black and a serif font designed for web use. I also personally favor the more minimalist design tendencies advocated by Edward Tufte and feel that the use of his CSS styling helps me to craft my story more in line with best-practices he has developed over the years.</p><p id="83643c63-a4fd-4e65-aced-c3cdcd314a5a" class="">While in choosing this medium I might miss out on some of the swanky features of Shorthand, such as parallax scrolling. Similar to my choice to use R, I feel that the personal learning benefit I gain from focusing on learning more about building a personal website in pure HTML and CSS outweighs the cons of missing out on the more feature laden Shorthand.</p><p id="fc50cf48-87ea-436f-906d-dcbc670f2c93" class="">For example, I will always be able to convert my HTML document into other styling using different CSS style sheets and also will always have ownership and control over the final document vs with Shorthand, they might look to delete any stories I have hosted with them if I do not use it for a long-period of time; this would be sad since I would lose a valuable portfolio example.</p><h3 id="03c3a74a-a26a-4361-88d4-3e7747fc4d2f" class="">Data Sources</h3><ul id="8b118f5a-fcff-4f80-80a0-7621b67784f0" class="bulleted-list"><li>A short paragraph that documents your data source(s), and an explanation of how you plan on using your data.</li></ul><p id="24a7546b-e0d7-46c0-bf1b-4a6237488fb1" class=""><strong>Source One: NPR, </strong><em><strong>Decline in Hunters Threatens How US Pays For Conservation</strong></em></p><p id="5290d9bf-2343-4d2f-97fc-37f3b7a92718" class=""><a href="https://www.npr.org/2018/03/20/593001800/decline-in-hunters-threatens-how-u-s-pays-for-conservation">https://www.npr.org/2018/03/20/593001800/decline-in-hunters-threatens-how-u-s-pays-for-conservation</a></p><p id="0839e6a7-8c4a-4a4a-ba8d-afc4e972897e" class=""><em>For this source I used it to get the numbers for decline in hunters over the past few years</em></p><p id="7f8138bf-d285-4e8e-be07-83344b4b22d9" class=""><strong>Source Two: Buzzfeed, </strong><em><strong>Under Trump, Gun Sales Did Not Spike After The Las Vegas Shooting</strong></em></p><p id="14a99de1-4012-4de6-9cdb-620f41dced9f" class=""><a href="https://github.com/BuzzFeedNews/2017-11-gun-sales-estimates">https://github.com/BuzzFeedNews/2017-11-gun-sales-estimates</a></p><p id="543a2425-4614-4316-976f-ffc053bd7217" class=""><em>For this source I got the data needed to show the relationship between spikes in gun sales after mass shootings and the general trend upwards during the Obama administration</em></p><p id="6f8ef788-4a4c-443c-9d2a-9c35efff8981" class=""><strong>Source Three: Congressional Research Service, </strong><em><strong>Pittman-Robertson Wildlife Restoration Act: Understanding Apportionments for States and Territories</strong></em></p><p id="4cd2d69a-420c-4186-ac02-4525d79ce6a5" class=""> <a href="https://fas.org/sgp/crs/misc/R45667.pdf">https://fas.org/sgp/crs/misc/R45667.pdf</a></p><p id="7eff4b6e-874a-4dfb-ba93-8048b1afbbc0" class=""><em>For this source I got the data on annual apportionments for the act and also the deflation index table to show adjusted apportionments factoring spending power.</em></p><h3 id="a834faef-fae3-43db-bc52-8289198d6ae0" class="">Raw Data</h3><ul id="2a684bf3-47b7-4386-b0f8-9a184a68b8fe" class="bulleted-list"><li><strong>Source One: NPR, </strong><em><strong>Decline in Hunters Threatens How US Pays For Conservation</strong></em></li></ul><ul id="8e70eeb3-4d0e-433d-a331-6af71634724a" class="bulleted-list"><li><strong>Source Two: Buzzfeed, </strong><em><strong>Under Trump, Gun Sales Did Not Spike After The Las Vegas Shooting</strong></em></li></ul><ul id="58fb3173-85a7-4b3a-aae2-2bf13e5ee7a9" class="bulleted-list"><li><strong>Source Three: Congressional Research Service, </strong><em><strong>Pittman-Robertson Wildlife Restoration Act: Understanding Apportionments for States and Territories</strong></em></li></ul><h2 id="fed4874c-1bb1-4b8e-a48a-d222799d3ae1" class=""><strong>Design and user research</strong></h2><h3 id="a31ded33-c06b-4b59-bc8b-449e9faa4791" class="">Original Sketches</h3><h3 id="881a1c61-d7ff-40e4-b3f1-2df6dfc130d8" class=""><strong>Mood Board</strong></h3><p id="54ebd7b8-04de-4dd2-af0a-9efc5bfc5fad" class="">In my images I tried to go for some consistency in the muted greens and earth tones ones might feel in the forest and nature. I did not feel I was able to achieve 100% thematic consistency in the tone of the photos, but overall felt the ones that strayed did not do so in a way that was distracting or detracting from the overall product.</p><p id="c0a088a7-e0e7-48a7-a428-c1e6128c23b9" class="">MOOD BOARD IMAGE</p><h3 id="e12672e9-4c1a-43de-8c21-251272446a22" class=""><strong>Personas</strong></h3><p id="e22e4b80-c02d-49b2-8fdb-5e71cede3de2" class=""><strong>General Target Audience</strong></p><p id="3de6c7c0-594c-4f06-9ba0-64e861851b76" class="">Overall, I am trying to reach all citizens as we all benefit from conservation efforts. More specifically though I am focused on those who already actively partake in enjoying the benefits of nature and want to learn more about conservation funding in order to better define their own position on conservation funding. However, as a primary target audience, I am most interested in individuals who participate in outdoor activities but are neither hunters nor gun enthusiast. </p><p id="f16ff321-eaa4-4a8d-aab7-c6954c71452f" class="">I am most interested in these individuals as they are the ones who would need to be converted to favoring a &#x27;Back Pack&#x27; Tax as a policy position to improve the funding base of Pittman-Robertson. My hope is that by pointing out that something they like (nature and conservation) is funded by something they don&#x27;t like (gun sales), that they might become more open to supporting a tax on other outdoor recreation equipment they might purchase.</p><p id="2bfdabc8-42cb-404c-9cea-0eefb09faac4" class=""><strong>Hunter</strong></p><p id="2a6423bd-51d6-4536-bd98-0454a69229a5" class="">As a <strong>Hunter</strong> I want <strong>to understand my contribution to conservation</strong> so that I can <strong>make informed choices around how I choose to support conservation</strong></p><p id="c576b5ec-0fca-4def-b7ef-c883ca305b98" class=""><strong>Gun Control Advocate</strong></p><p id="fb6d9174-6816-401f-b0be-e7e142f7b01a" class="">As a <strong>Gun Control Advocate</strong> I want <strong>to understand my contribution to conservation</strong> so that I can <strong>make informed choices around how I choose to support conservation</strong></p><p id="428eabb2-1655-4005-8e57-f33993797c14" class=""><strong>Outdoor Enthusiast (Primary Audience)</strong></p><p id="e89bc4b0-8377-490a-a21e-d9ffd7b69ad1" class="">As a <strong>Outdoor Enthusiats</strong> I want <strong>to understand my contribution to conservation</strong> so that I can <strong>make informed choices around how I choose to support conservation</strong></p><h3 id="3fe679dc-7309-410e-a917-ab84c969aea5" class="">User Research Protocol</h3><p id="65a4908c-1308-4b38-8a62-1a2d1dcd4d26" class="">For my user research I have the benefit of living in Portland, OR which has both an odd abundance of hunters and outdoor enthusiast who are pretty extreme in their anti-hunting and anti-gun sentiment. For my users, I used coworkers and friends who fit the general personas I was interested in; I realize that using people who know you is generally not best practice in user research but time was of the essence in the project and most of my users are capable of being brutally honest with me.</p><p id="0687da77-901c-4400-9f9b-2303ca153755" class=""><strong>Script:</strong> I like to generally start very open ended on my user research interactions and let their initial responses then guide the conversation. Below is the my opening question, which I then used as a starting point for telling my story, which I did through oral narrative and showing prototype charts. I Then closed the conversation with the below ending question to determine if I have achieved persuading my audience to fund conservation through additional revenue beyond hunting equipment.</p><ul id="3240e8f3-412f-4f25-92ad-2b9b79827f60" class="bulleted-list"><li><strong>Starting Question: </strong>Where do you believe the majoraty of conservation funding comes from?</li></ul><ul id="59cc36fb-789d-4fe6-b06c-6a9c974cac06" class="bulleted-list"><li><strong>Ending Question: </strong>Would you be open to paying more for conservation?</li></ul><h3 id="7942f2ec-cd5e-454c-ad6e-cedd5ffede75" class="">User Research Findings</h3><p id="4ca1c9ee-9c2b-4acd-b536-96fc7cafb786" class="">Generally, I found the users I interviewed had very little understanding of overall conservation policy and its funding. This was difficult to navigate with users at times because some would get curious about all funding for broad array of different government groups like the national parks service, world wild life foundation, etc. While others, would not care much about the policy and get straight to the WIIFM(Whats In It For Me?) to understand how they might stand to benefits.</p><p id="3d7a88fa-cc3e-451a-973d-796a5decf7bd" class="">Overall though, those who were not hunters, including those who were gun owners, were mostly unaware that a tax on firearms was a significant source of conservation funding with its roots in a tax aimed at hunters.</p><p id="4b805f81-d336-4d60-bb98-3a58c6a3dec0" class="">Once aware of the source of the tax, most of the users who fell into the primary target audience were open to considering paying additional taxes themselves but wanted to learn more about them before following a call to action that committed them to supporting additional taxes on things like equipment sold at REI (kayaks, backpacks, boots).</p><h3 id="fb2e86e6-82fd-4722-a096-4e344c0be626" class="">Final Designs</h3><p id="13ee8868-05d1-4efc-bd3b-d983b8a43e80" class="">CHART
+CHART
+CHART
+CHART</p><h2 id="bae89106-63de-4d76-9774-4427b089a962" class=""><strong>Final Thoughts</strong></h2><h3 id="dfdbfe22-d1e5-4af1-933f-c8b674dd1cf3" class="">Adaptions for Target Audience</h3><p id="b2f945e7-579b-42d8-b4eb-b63cb47fc332" class="">Once I identified a more specific target audience of the outdoor enthusiast who might generally be opposed to firearms, I tried to make a more targeted story to them that highlighted things they enjoy about the outdoors, such as the overall benefits of conservation(ex: like saving species from going extinct), while also showing that much of the funding for these conservation activities that we all benefit from and that they, the user, actively enjoys, comes from something driven by sales spiking after mass shootings.</p><p id="ec9bb931-ee93-47bb-a68e-28b0339d0d40" class="">I think this emotional link to the politics and sadness of how gun sales spike after mass shootings and how we can see these sale spikes reflected in the tax revenue generated helped better convert users to being more open to alternative funding sources.</p><p id="c7c3ca6b-597e-4096-96fc-3ba0c5bea967" class="">However, I wanted to try and tell the story in a way that was balanced enough that a pro-gun/pro-hunting user might read the end and not feel offended by the portrayal and hope that the others would consider the backpack tax as a way to enlarge the pool of overall spending for conservation.</p><p id="39ca91a8-6313-4db1-82fd-325f1dc1f320" class="">It was difficult to maintain the balance between keeping a target user interested in the story you were telling while also keeping it at a place where those we might have accidentally happened upon your story could still find threads of logic that resonated with them and left them feeling more informed in their positions on conservation funding.</p><h3 id="560b85c1-e5db-4bcb-9d27-2762b0854a26" class="">What I Learned Along The Way</h3><ul id="613f7c6b-708d-4be5-b34e-3574b7592519" class="bulleted-list"><li><strong>A few paragraphs</strong> that summarize the work you&#x27;ve done so far. Talk about the design decisions you had to make along the way, and reflect on anything in particular that stands out to you that you learned working through the process.</li></ul><h2 id="ed033dfe-9d51-4c5b-bf51-719e6c5d796f" class="">Final Story</h2><ul id="7cdfc51c-8515-45a5-a166-d4037b5a8245" class="bulleted-list"><li>Add a link to your final data story (a direct link to Shorthand / StoryMap / etc.) <strong>placed in the final presentation spreadsheet on Canvas</strong>. Add the link next to your name in the spreadsheet, and update the title to reflect the working title for your presentation.</li></ul><ul id="504edc6a-27de-435b-b96a-9ad41f7abd11" class="bulleted-list"><li><strong>Include all references for materials used. </strong>It&#x27;s your responsibility to ensure you have permission to use imagery and other assets, and that you use them appropriately. A reminder to NOT USE COPYRIGHTED MATERIAL - <a href="https://guides.library.cmu.edu/usingimages">see the library&#x27;s guide to ensure you are using images correctlyLinks to an external site.</a>. Make sure to add / update any citations and / or other content that you used to create your data story. References should also be clearly identified on your final data story itself.</li></ul><ul id="d42b9034-bf78-4c7f-889e-69a6ba3b59f1" class="bulleted-list"><li>Include any other information that helps round out your data story.</li></ul><hr id="b4585b21-fdf6-4e2f-a303-d0c989f6ed0f"/><p id="62f7bad9-9ad3-48e3-a1c6-6a12ffa42f26" class="">STORY</p><p id="72c1d32f-e7a5-4215-bada-f262ee8fbcc4" class="">I grew up in Morningside Heights, NYC and much of my early exposure to nature beyond the concrete jungle came from regular visits to the Museum of Natural History which was just a few blocks from my Elementary school P.S. 87. As a kid, this was place of wonder and magic, with marble halls housing full size dinosaur skeletons, blue whales and giant squids, and seemingly all the animals that have ever walked the earth.</p><p id="d1dc4d63-efbe-44a3-8542-4dee4b86ca89" class="">One of these animals that I always recall marveling at is the Tasmanian Tiger, an animal that has been declared extinct (although some feel it might be hiding in the dense jungle forests of Tasmania). The cause of the Tasmanian Tigers extinction is an easy one to guess, humanity and our excess. We, humanity, hunted the Tasmanian Tiger to extinction so that now the only real evidence of their existence is a few grainy videos and photos, and the taxidermy examples like the one I stood across so many times.</p><p id="5ed617e0-2634-4417-b5a9-04d2462533a0" class="">Whats odd though is that at the front of the museum is a statue of Theodore Roosevelt, a president who loved to hunt, but also who ushered in an era of american conservation that has resulted in many species being brought back from the brink of extinction.</p><blockquote id="85b63706-2d63-42ef-bdd6-c64c50d4e7b2" class="">&quot;There can be nothing in the world more beautiful than the Yosemite, the groves of the giant sequoias and redwoods, the Canyon of the Colorado, the Canyon of the Yellowstone, the Three Tetons; and our people should see to it that they are preserved for their children and their children&#x27;s children forever, with their majestic beauty all unmarred.&quot; - Theodore Roosevelt</blockquote><p id="6b807658-3425-40f9-8c45-a0249f260f8b" class="">If not for the actions of Theodore Roosevelt and his presidential predecessors</p><p id="87520cb6-7f9e-4b3b-a275-eae883ffe753" class="">
+</p></div></article></body></html>
